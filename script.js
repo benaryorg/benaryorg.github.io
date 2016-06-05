@@ -71,6 +71,7 @@ document.addEventListener('DOMContentLoaded',function()
 		xhr.onreadystatechange = readystatechange;
 		xhr.open('GET','posts.txt',true);
 		xhr.send();
+		return false;
 	};
 });
 
