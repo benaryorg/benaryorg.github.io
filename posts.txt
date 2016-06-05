@@ -1,2 +1,3 @@
+posts/austrian_school_system.md;The Austrian School System
 README.md;Readme of this Blog Software
 posts/hello_world.md;Hello World
