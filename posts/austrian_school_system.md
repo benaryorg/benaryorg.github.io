@@ -48,17 +48,17 @@ In Austria some states have shifted summer-holidays by one, two or three(?)
 weeks.
 Lengths are the same everywhere:
 
-+-----------+---------+---------------------------+
-| Holiday   | Length  | Time (approximately)      |
-+===========+=========+===========================+
-| Summer    | 9 weeks | starting July             |
-+-----------+---------+---------------------------+
-| Christmas | 2 weeks | starting 24th of December |
-+-----------+---------+---------------------------+
-| Easter    | 1 week  | Easter                    |
-+-----------+---------+---------------------------+
-| Semester  | 1 week  | between semesters         |
-+-----------+---------+---------------------------+
+	+-----------+---------+---------------------------+
+	| Holiday   | Length  | Time (approximately)      |
+	+===========+=========+===========================+
+	| Summer    | 9 weeks | starting July             |
+	+-----------+---------+---------------------------+
+	| Christmas | 2 weeks | starting 24th of December |
+	+-----------+---------+---------------------------+
+	| Easter    | 1 week  | Easter                    |
+	+-----------+---------+---------------------------+
+	| Semester  | 1 week  | between semesters         |
+	+-----------+---------+---------------------------+
 
 Probably more.
 I dunno.
@@ -72,19 +72,19 @@ after 6 consecutive lessons.
 
 ### Grades
 
-+-------+------------+
-| Grade | Quality    |
-+=======+============+
-| 1     | Very Good  |
-+-------+------------+
-| 2     | Good       |
-+-------+------------+
-| 3     | Okay       |
-+-------+------------+
-| 4     | Enough     |
-+-------+------------+
-| 5     | Not Enough |
-+-------+------------+
+	+-------+------------+
+	| Grade | Quality    |
+	+=======+============+
+	| 1     | Very Good  |
+	+-------+------------+
+	| 2     | Good       |
+	+-------+------------+
+	| 3     | Okay       |
+	+-------+------------+
+	| 4     | Enough     |
+	+-------+------------+
+	| 5     | Not Enough |
+	+-------+------------+
 
 ## First
 
