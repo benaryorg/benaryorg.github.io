@@ -1,77 +1,104 @@
 document.addEventListener('DOMContentLoaded',function()
 {
 	var converter = new Markdown.Converter();
-	var xhr = new XMLHttpRequest();
 	var DONE = this.DONE || 4;
-	var readystatechange = function()
+
+	var loadpost = function(file)
 	{
-		if(this.readyState === DONE && this.status === 200)
-		{
-			document.getElementById('postparent').style.display = 'none';
-			document.getElementById('postlistparent').style.display = 'block';
-
-			var oldlist = document.getElementById('postlist');
-			var list = document.createElement('ul');
-			list.id = 'postlist';
-
-			var lines = xhr.responseText.split('\n');
-			lines
-				.map(function(line)
-				{
-					return line.trim();
-				})
-				.filter(function(line)
-				{
-					return line.length > 0;
-				})
-				.forEach(function(line)
-				{
-					var index = line.indexOf(';');
-					var file = line.substr(0,index);
-					var title = line.substr(index+1);
-
-					var li = document.createElement('li');
-					var link = document.createElement('a');
-
-					link.href = '#';
-					link.innerText = title;
-					link.onclick = function()
-					{
-						var xhr = new XMLHttpRequest();
-						xhr.onreadystatechange = function()
-						{
-							if(this.readyState === DONE && this.status === 200)
-							{
-								var post = document.getElementById('post');
-								post.innerHTML = converter.makeHtml(xhr.responseText);
-								document.getElementById('postparent').style.display = 'block';
-								document.getElementById('postlistparent').style.display = 'none';
-							}
-						};
-						xhr.open('GET',file,true);
-						xhr.send();
-						return false;
-					};
-
-					li.appendChild(link);
-					list.appendChild(li);
-				});
-
-			document.getElementById('postlistparent').replaceChild(list,oldlist);
-		}
-	}
-	xhr.onreadystatechange = readystatechange;
-	xhr.open('GET','posts.txt',true);
-	xhr.send();
-
-	document.getElementById('backlink').onclick = function()
-	{
-		document.getElementById('post').innerHTML = '';
 		var xhr = new XMLHttpRequest();
-		xhr.onreadystatechange = readystatechange;
+		xhr.onreadystatechange = function()
+		{
+			if(this.readyState === DONE && this.status === 200)
+			{
+				var center = document.getElementById('center');
+				var backlink = document.createElement('a');
+				var post = document.createElement('div');
+
+				center.innerHTML = '';
+
+				backlink.href = '.';
+				backlink.innerText = 'Back to Posts';
+
+				post.innerHTML = converter.makeHtml(xhr.responseText);
+
+				center.appendChild(backlink);
+				center.appendChild(post);
+			}
+		};
+		xhr.open('GET',file,true);
+		xhr.send();
+		return false;
+	};
+
+	var loadpostlist = function()
+	{
+		var recvposts = function()
+		{
+			if(this.readyState === DONE && this.status === 200)
+			{
+				var header = document.createElement('h1');
+				header.innerText = 'Blog Posts:';
+				var list = document.createElement('ul');
+
+				var lines = xhr.responseText.split('\n');
+				lines
+					.map(function(line)
+					{
+						return line.trim();
+					})
+					.filter(function(line)
+					{
+						return line.length > 0;
+					})
+					.forEach(function(line)
+					{
+						var index = line.indexOf(';');
+						var file = line.substr(0,index);
+						var title = line.substr(index+1);
+
+						var li = document.createElement('li');
+						var link = document.createElement('a');
+
+						link.href = '?post='+encodeURIComponent(file);
+						link.innerText = title;
+						link.onclick = function()
+						{
+						};
+
+						li.appendChild(link);
+						list.appendChild(li);
+					});
+
+				var center = document.getElementById('center');
+				center.innerHTML = '';
+				center.appendChild(header);
+				center.appendChild(list);
+			}
+		}
+
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = recvposts;
 		xhr.open('GET','posts.txt',true);
 		xhr.send();
 		return false;
 	};
+
+	var index = window.location.href.indexOf('?post=');
+	if(index == -1)
+	{
+		loadpostlist();
+	}
+	else
+	{
+		var post = window.location.href.substr(index+6);
+		if(post != '')
+		{
+			loadpost(post);
+		}
+		else
+		{
+			loadpostlist();
+		}
+	}
 });
 
