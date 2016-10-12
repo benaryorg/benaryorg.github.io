@@ -1,3 +1,1 @@
-README.md;Readme of this Blog Software
-posts/code_test.md;A Little Test for the Syntax Highlighting
-posts/hello_world.md;Hello World
+
