@@ -158,10 +158,13 @@ assist in doing things.
 
 Examples of bootloaders include:
 
-- LiLo
-- Grub
-- Windows Bootloader
-- syslinux
+- Linux
+	- LiLo
+	- Grub
+	- syslinux
+- Windows
+	- ntldr
+	- bootmgr
 
 This second bootloader often is large enough to know how to properly read other
 data than just "the first 512 byte" meaning it can already read data from the
