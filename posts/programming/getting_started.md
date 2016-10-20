@@ -178,5 +178,5 @@ called the "kernel".
 ### Kernel
 
 From here on things are quite different depending on your OS so I'll save it
-for the next blog post, which will be on OSes.
+for a later blog post.
 
