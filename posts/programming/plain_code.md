@@ -82,6 +82,7 @@ In the example of the connection this function could look like:
 connection connect(address server,number port)
 {
 	// do something
+	return some_variable_of_type_connection;
 }
 ```
 
