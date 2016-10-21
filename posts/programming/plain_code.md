@@ -119,6 +119,19 @@ Characters are used for text.
 Meaning you can easily store `'a'` or `'b'` and using pointers or arrays whole
 words sentences or whatever you want, we call that a *string*.
 
+If you are storing an actual character in a `char` as opposed to a number, then
+you will find yourself using ASCII, which is just a standard assigning specific
+numbers to letters.
+`'a'` for example equals the number 97.
+You usually don't use the numbers directly but character notation:
+
+*[ASCII]: American Standard Code for Information Interchange
+
+```c
+char difficult = 97;
+char easy = 'a';
+```
+
 ### Floating Point
 
 There is a nice [IEEE
