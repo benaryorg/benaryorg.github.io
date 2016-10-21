@@ -224,5 +224,101 @@ not permitted).
 This is also nice if you got your memory from somewhere else than an array
 declaration.
 
+Furthermore it means that not only is your array a pointer but also that any
+pointer is an array.
+
+Therefore you can do things like that:
+
+```c
+// returns the second element
+int second(int *arr)
+{
+	// remember that the first index is 0
+	return arr[1];
+}
+
+// create an array with two elements (0 and 1)
+// and fill it with the values 1337 and 42
+int arr[2] = {1337,42};
+
+// store the result (42) of `second` into `snd`
+int snd = second(arr);
+```
+
+## Pointer Arithmetic
+
+You can add some numbers to integers and characters of course, but what about
+pointers?
+If you add or subtract some number from/to a pointer then the result is a
+pointer shifted by that **amount**.
+Amount in this case means that it is shifted by a number of units of the type
+of the pointer.
+
+An example:
+
+```c
+// pointer at the start of the ram at address 0
+int *ptr = 0;
+
+// pointer to the second integer in memory
+// this means it points at the address 4
+int *further = ptr+1;
+```
+
+I wrote "the second integer in memory" which is kind of a contrary statement to
+what I said before.
+Memory is just a bunch of bytes.
+On RAM level there is no such thing as an integer.
+But if you write C code that declares some memory address to be handled as an
+integer then it will be handled as that, even if it's not.
+
+We can see this easily in an example like this:
+
+```c
+// regular integer (4 byte)
+int i = 1337;
+
+// use the four bytes of `i` as an array
+char *arr = &i;
+
+// we can now access the individual parts of the array
+arr[0]; // 57
+arr[1]; // 5
+arr[2]; // 0
+arr[3]; // 0
+```
+
+Something worth noting here is that the first element (0) contains the lowest
+byte of the integer.
+This is because the platform I am assuming (x86_64) is "little endian".
+More information on [Wikipedia](https://en.wikipedia.org/wiki/Endianness).
+
+## Strings
+
+Strings as mentioned above are a special kind of array, a character array.
+They are very important because in an application you often deal with character
+arrays, whether it be user input, network connections or just simple output,
+you always work with byte arrays.
+
+Strings do have some special value at the end, a zero.
+This is used for termination.
+Why you ask?
+Well, imagine an array which holds the text a user entered; variable length and
+definitely no NUL value inside.
+Now it is your job to do things with it.
+How do you know where it ends?
+You see that having a 0 at the end is perfect for telling where a string ends.
+
+And because we use strings that often there is a convenient way to write them:
+
+```c
+// we can leave the number out if we directly initialize it
+// because the length is known at compile-time because we set the values
+char array[] = {97,104,97,0}; // ASCII for "aha" and a zero at the end
+
+// means the same (including the zero at the end).
+char same[] = "aha";
+```
+
 # To Be Continued
 
