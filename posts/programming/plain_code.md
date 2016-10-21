@@ -132,6 +132,9 @@ char difficult = 97;
 char easy = 'a';
 ```
 
+ASCII table and other things about ASCII to be found
+[here](https://en.wikipedia.org/wiki/ASCII).
+
 ### Floating Point
 
 There is a nice [IEEE
