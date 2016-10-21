@@ -1,1 +1,2 @@
 posts/programming/getting_started.md;Getting Started With Programming
+posts/programming/plain_code.md;Plain Code
