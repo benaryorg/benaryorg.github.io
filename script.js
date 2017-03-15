@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded',function()
 						list.appendChild(li);
 					});
 
-				header.innerHTML = 'Blog Posts:';
+				header.innerHTML = 'Blag Posts:';
 
 				newcenter.id = 'center';
 				newcenter.innerHTML = '';
