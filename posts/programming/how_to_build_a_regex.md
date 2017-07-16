@@ -91,7 +91,7 @@ looking for here?
 
 Well, the IP is right at the start, so we'll take `m{^<HOST>.*$}` right?
 
-Wrong.
+Technically right, but I wouldn't write it that way.
 That regex would again match everything after the IP, but *we really don't care
 about that*.
 
