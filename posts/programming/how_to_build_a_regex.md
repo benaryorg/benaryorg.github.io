@@ -128,21 +128,28 @@ Now let's do this:
 ```text
 # copy the line, verbatim
 [16/Jul/2017:16:27:41 +0200] openbsd.cloud.bsocat.net - - 66.133.109.36 "GET /.well-known/acme-challenge/tTRnUGY9gZEVz2llGWqn1m3mHznMDOFH3zCXsgelh7w HTTP/1.1" 200 87
+
 # remove everything after the needle (except for the delimiter), we don't need it
 [16/Jul/2017:16:27:41 +0200] openbsd.cloud.bsocat.net - - 66.133.109.36\s
+
 # add needed meta-characters (start of line)
 ^[16/Jul/2017:16:27:41 +0200] openbsd.cloud.bsocat.net - - 66.133.109.36\s
+
 # escape all the characters that need escaping
 ^\[16/Jul/2017:16:27:41 \+0200\] openbsd\.cloud\.bsocat\.net - - 66\.133\.109\.36\s
+
 # replace the host
 ^\[16/Jul/2017:16:27:41 \+0200\] openbsd\.cloud\.bsocat\.net - - <HOST>\s
+
 # replace everything that is not static by their possible values
 # this requires a lot of in depth knowledge about the log format
 # let's do this the easy way and just replace using dots for the date
 ^\[../.../....:..:..:.. .....\] openbsd\.cloud\.bsocat\.net - - <HOST>\s
+
 # for the other fields we just specify them to "not contain spaces" as these
 # are used for delimiting, so they will not occur in the fields
 ^\[../.../....:..:..:.. .....\] [^\s]+ [^\s]+ [^\s]+ <HOST>\s
+
 # fail2ban needs spaces escaped I think
 ^\[../.../....:..:..:..\s.....\]\s[^\s]+\s[^\s]+\s[^\s]+\s<HOST>\s
 ```
