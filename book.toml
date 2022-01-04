@@ -1,0 +1,7 @@
+[book]
+authors = ["benaryorg"]
+language = "en"
+multilingual = false
+src = "src"
+title = "benaryorg.github.io"
+description = "benaryorg's blag"

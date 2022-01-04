@@ -1,4 +1,0 @@
-posts/programming/getting_started.md;Getting Started With Programming
-posts/programming/plain_code.md;Plain Code
-posts/programming/a_to_b.md;A to B
-posts/programming/how_to_build_a_regex.md;How To Build A RegEx

@@ -1,4 +1,4 @@
-# How to build a RegEx
+# How to build a RegExp?
 
 I see people abusing regexes just about every day.
 If you're really good at regexes then you will certainly feel some sort of pain
