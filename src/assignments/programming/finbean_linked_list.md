@@ -202,7 +202,9 @@ int main()
 
 Besides writing this and answering questions if people had some (also teaching some peers how to use the basics of *gdb*, though that's not quite related to this) there was also this questionaire that came up in the end.
 This was also relayed by Finbean, and of course it may very well be subject to intellectual property, so I reproduce these questions here hoping that neither me nor Finbean will be reprimanded for it.
-If you want it taken down hit me up via the media of your choice, [my website](https://benary.org)^[note the website is IPv6-only, file a complaint with your ISP if you can't access it, though I can't help but think that my infrastructure may be at fault] should list *something* you can use.
+If you want it taken down hit me up via the media of your choice, [my website](https://benary.org)[^ipv6_only] should list *something* you can use.
+
+[^ipv6_only]: Note the website is IPv6-only, file a complaint with your ISP if you can't access it, though I can't help but think that my infrastructure may be at fault.
 
 ### Used Structure
 
