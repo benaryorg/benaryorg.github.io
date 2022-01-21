@@ -1,0 +1,419 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Finbean Linked List - benaryorg.github.io</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="benaryorg&#x27;s blag">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../../legacy/index.html"><strong aria-hidden="true">2.</strong> Legacy</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../legacy/programming/getting_started.html"><strong aria-hidden="true">2.1.1.</strong> Getting Started With Programming</a></li><li class="chapter-item expanded "><a href="../../legacy/programming/plain_code.html"><strong aria-hidden="true">2.1.2.</strong> Plain Code</a></li><li class="chapter-item expanded "><a href="../../legacy/programming/a_to_b.html"><strong aria-hidden="true">2.1.3.</strong> A to B</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> Meta</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../legacy/meta/how_to_build_a_regexp.html"><strong aria-hidden="true">2.2.1.</strong> How to build a RegExp?</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../assignments.html"><strong aria-hidden="true">3.</strong> Assignments</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../assignments/programming/finbean_linked_list.html" class="active"><strong aria-hidden="true">3.1.1.</strong> Finbean Linked List</a></li></ol></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">benaryorg.github.io</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="finbean-linked-list"><a class="header" href="#finbean-linked-list">Finbean Linked List</a></h1>
+<h2 id="finbean"><a class="header" href="#finbean">Finbean</a></h2>
+<p>If you don't know <a href="https://twitch.tv/psycho_manatee">Finbean</a> then this meta-paragraph probably doesn't concern you.
+Basically Finbean studies computer science and writes code.
+Rookie code I'd probably say, but we've all been rookies at some point, and there's only so far you can make someone go on their assignments, so sometimes you code along.</p>
+<h2 id="the-assignment"><a class="header" href="#the-assignment">The Assignment</a></h2>
+<p>I don't know exactly what the assignment was, it was something about storing cuisines in a list, and you had to craft the list yourself I assume (otherwise, what the heck Finbean, that assignment would've taken like two minutes).
+Anyway, language is C++ and the &quot;IDE&quot; was vim, which <em>is</em> powerful enough as it is.
+Since I use vim daily <a href="https://github.com/benaryorg/dotfiles">my configuration</a> is elaborate, and my toolchain consists of a long list of compiler flags and some additional tools (like <em>valgrind</em> or <em>gdb</em>).
+For this assignment however I used <a href="https://www.onlinegdb.com/9C4vV0Rv30">onlinegdb.com</a> as it was easiest, despite running Gentoo and therefore having C++ compilers at hand on every single machine I have.</p>
+<h2 id="code"><a class="header" href="#code">Code</a></h2>
+<p>Back on track, this is the code (ISC licensed):</p>
+<pre><code class="language-cpp">/*
+ * Copyright (c) 2022 benaryorg &lt;binary@benary.org&gt;
+ *
+ * Permission to use, copy, modify, and distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+ * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ */
+
+// compile using:
+//  g++ \
+//    -pedantic -Wall -Wextra -Wcast-align -Wcast-qual -Wctor-dtor-privacy -Wdisabled-optimization
+//    -Wformat=2 -Winit-self -Wlogical-op -Wmissing-declarations -Wmissing-include-dirs -Wnoexcept
+//    -Wold-style-cast -Woverloaded-virtual -Wredundant-decls -Wsign-conversion -Wsign-promo
+//    -Wstrict-null-sentinel -Wstrict-overflow=5 -Wswitch-default -Wundef -Wno-unused -Werror
+
+#include &lt;iostream&gt;
+#include &lt;memory&gt;
+
+using namespace std;
+
+typedef void (*iter_func)(const string *data);
+
+void print_node(const string *);
+
+class MyNode
+{
+	string data;
+	unique_ptr&lt;MyNode&gt; next { nullptr };
+
+public:
+	MyNode(string data)
+	{
+		this-&gt;data = data;
+	}
+
+	bool eq(string data)
+	{
+		return this-&gt;data == data;
+	}
+
+	void iterate(iter_func func)
+	{
+		func(&amp;this-&gt;data);
+		if(this-&gt;next)
+		{
+			this-&gt;next-&gt;iterate(func);
+		}
+	}
+
+	void insert(string data)
+	{
+		if(data &lt; this-&gt;data)
+		{
+			unique_ptr&lt;MyNode&gt; old = move(this-&gt;next);
+			this-&gt;next = unique_ptr&lt;MyNode&gt;(new MyNode(this-&gt;data));
+			this-&gt;data = data;
+			this-&gt;next-&gt;next = move(old);
+		}
+		else
+		{
+			if(this-&gt;next)
+			{
+				this-&gt;next-&gt;insert(data);
+			}
+			else
+			{
+				this-&gt;next = unique_ptr&lt;MyNode&gt;(new MyNode(data));
+			}
+		}
+	}
+
+	bool remove(string data)
+	{
+		if(!this-&gt;next)
+		{
+			return false;
+		}
+		if(this-&gt;next-&gt;eq(data))
+		{
+			this-&gt;next = move(this-&gt;next-&gt;next);
+			return true;
+		}
+		return this-&gt;next-&gt;remove(data);
+	}
+
+	unique_ptr&lt;MyNode&gt; split_after()
+	{
+		return move(this-&gt;next);
+	}
+};
+
+class MyList
+{
+	unique_ptr&lt;MyNode&gt; head { nullptr };
+
+public:
+	MyList()
+	{
+	}
+
+	void iterate(iter_func func)
+	{
+		if(this-&gt;head)
+		{
+			this-&gt;head-&gt;iterate(func);
+		}
+	}
+
+	void insert(string data)
+	{
+		if(this-&gt;head)
+		{
+			this-&gt;head-&gt;insert(data);
+		}
+		else
+		{
+			this-&gt;head = unique_ptr&lt;MyNode&gt;(new MyNode(data));
+		}
+	}
+
+	bool remove(string data)
+	{
+		if(!this-&gt;head)
+		{
+			return false;
+		}
+		return false;
+		if(this-&gt;head-&gt;eq(data))
+		{
+			this-&gt;head = this-&gt;head-&gt;split_after();
+			return true;
+		}
+		return this-&gt;head-&gt;remove(data);
+	}
+};
+
+void print_node(const string *data)
+{
+	cout &lt;&lt; &quot;data: &quot; &lt;&lt; *data &lt;&lt; endl;
+}
+
+int main()
+{
+	unique_ptr&lt;MyList&gt; list(new MyList());
+
+	cout &lt;&lt; &quot;first run (empty):&quot; &lt;&lt; endl;
+	list-&gt;iterate(print_node);
+
+	list-&gt;insert(&quot;tomato salad&quot;);
+	cout &lt;&lt; &quot;second run (1):&quot; &lt;&lt; endl;
+	list-&gt;iterate(print_node);
+
+	list-&gt;insert(&quot;french fries&quot;);
+	cout &lt;&lt; &quot;third run (2):&quot; &lt;&lt; endl;
+	list-&gt;iterate(print_node);
+
+	list-&gt;insert(&quot;potato salad&quot;);
+	cout &lt;&lt; &quot;fourth run (3):&quot; &lt;&lt; endl;
+	list-&gt;iterate(print_node);
+
+	list-&gt;insert(&quot;marinated manatee&quot;);
+	cout &lt;&lt; &quot;fifth run (4):&quot; &lt;&lt; endl;
+	list-&gt;iterate(print_node);
+
+	list-&gt;remove(&quot;marinated manatee&quot;);
+	cout &lt;&lt; &quot;sixth run (3):&quot; &lt;&lt; endl;
+	list-&gt;iterate(print_node);
+
+	return 0;
+}
+</code></pre>
+<h2 id="questionare"><a class="header" href="#questionare">Questionare</a></h2>
+<p>Besides writing this and answering questions if people had some (also teaching some peers how to use the basics of <em>gdb</em>, though that's not quite related to this) there was also this questionaire that came up in the end.
+This was also relayed by Finbean, and of course it may very well be subject to intellectual property, so I reproduce these questions here hoping that neither me nor Finbean will be reprimanded for it.
+If you want it taken down hit me up via the media of your choice, <a href="https://benary.org">my website</a>^[note the website is IPv6-only, file a complaint with your ISP if you can't access it, though I can't help but think that my infrastructure may be at fault] should list <em>something</em> you can use.</p>
+<h3 id="used-structure"><a class="header" href="#used-structure">Used Structure</a></h3>
+<blockquote>
+<p>a. How well did the data structure selected perform for the assigned application?</p>
+</blockquote>
+<p>I chose a list with most methods implemented via tail recursive calls on the nodes.
+This performed reasonably well since the ergonomics are at focus for this assignment.
+Had performance in terms of memory, cpu, or scalability constraints been an issue the lack of short-circuiting in the iterative approach of traversing the list would have been a limiting factor.</p>
+<h3 id="alternative-structures"><a class="header" href="#alternative-structures">Alternative Structures</a></h3>
+<blockquote>
+<p>b. Would a different data structure work better? If so, which one and why...</p>
+</blockquote>
+<p>My list was singly linked, therefore implementation complexity was low which was the important thing here.
+It also was more of a set-like approach (a PriorityQueue in Java or BinaryHeap in Rust), keeping the list sorted internally at all times, this would've allowed some performance improvements, though nothing big compared to the alternatives.
+However for performance reasons a hashset or hashmap would have been more suitable.
+The constant-time of hashing adds some overhead but allows O(log(n)) indexing which for large sets of data outperforms any iterative approach.</p>
+<h3 id="efficiency-considerations-of-used-structure"><a class="header" href="#efficiency-considerations-of-used-structure">Efficiency Considerations of Used Structure</a></h3>
+<blockquote>
+<p>c. What was efficient about your design and use of the data structure?</p>
+</blockquote>
+<p>The tail recursion did make up for constant memory usage while keeping implementation complexity to a minimum.
+The separation of list and node functions, the latter carrying the brunt of logic, did allow for a separation of internals and interface while still keeping internals structured.
+Keeping the list sorted internally was also a benefit when it comes to search, but that was barely necessary.
+If insertion speed was key, then this would indeed be a serious flaw.</p>
+<h3 id="ineffeciencies-of-used-structure"><a class="header" href="#ineffeciencies-of-used-structure">Ineffeciencies of Used Structure</a></h3>
+<blockquote>
+<p>d. What was not efficient?</p>
+</blockquote>
+<p>Insertion speed mostly, but as said, everything compared to a hash-approach.</p>
+<h3 id="critical-approach"><a class="header" href="#critical-approach">Critical Approach</a></h3>
+<blockquote>
+<p>e. What would you do differently if you had more time to solve the problem?</p>
+</blockquote>
+<p>Throw math at the problem, in a nutshell.
+Many existing algorithms are faster than mine mathematically. I'd leverage them where possible.</p>
+<p>For <em>e</em> I'd like to add that if I had more time I'd like to have a talk with the product owners or stakeholders (or whatever internal position is responsible for clarifying requirements) as to what use-case should be optimised for.
+Are we focusing write speed? Memory compactness? Search time?
+The solution strongly depends on these, for example Perfect Hash Functions (PHFs) can be used to achieve constant time access in a map, which would be useful if the list was either constant/static or rarely ever changed.
+Adding new elements would be terribly expensive then though.
+Also, a database might be much better suited if filtering was important.</p>
+<p>If complexity would rise above basic types of sets or lists then I'd very likely opt for using an in-memory sqlite database, which is both trivial in terms of license (public domain) as well as embeddable (it's in virtually every smartphone) and highly performant [citation needed] and scalable (unless you require parallel writable access).
+It also serialises nicely, and can leverage edge cases such as expensive flash storage by using append-mechanisms and whatnot.
+Basically for storing structured data, sqlite is the way to go if you need querying.</p>
+<h2 id="words-to-the-professor"><a class="header" href="#words-to-the-professor">Words to the Professor</a></h2>
+<p>I know I didn't fully finish the assignment, heck I didn't even have access to it to begin with, however I'd like your honest opinion on this if possible.
+To add a few things about my code: yes, my class naming sounds more like a tutorial than anything.
+Also, I would've gone the full route and either use templating or generics to get myself a generic list, or map even, that would allow me to re-use it for several parts of the assignment, again the full scope of which I didn't have access to, hence I only ever implemented the basic list type and the bare minimum of methods on it.
+Also, I'm &quot;new&quot; to C++, usually sticking to Rust, C, and various scripting language since I'm a systems administrator by profession (though both developer and devops suite my skillset equally well), hence not making use of the very powerful features of templating that C++ offers, a double edged sword, but one that when wielded properly can be a game-changer.
+In practice I'd stay away from templating though, since maintainability decreases drastically in such cases, and in my opinion maintainability is more important than performance often enough.
+Also note that modern compilers optimize better than humans can do, so the best we can do is choose an approach and algorithm and hope for the best, implementation specifics rarely matter, and making the code concise on a high-level often increases speed due to abstractions applied by the optimisation layer, such as tail-call optimisation.</p>
+<p>Feel free to send me an email if you can be bothered to go through this.</p>
+<h3 id="further-info"><a class="header" href="#further-info">Further Info</a></h3>
+<p>By the way, examples of such optimisations are the rigorous use of call-by-value even for large structs.
+The compiler will figure out how to pass it indirectly or how to make use of the stack.
+Generally I prefer using the stack wherever possible for that reason exactly.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../assignments.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../assignments.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
