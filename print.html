@@ -188,20 +188,34 @@ Here I'll explain some of my background and what this is all about.</p>
 <p>I'm currently typing this on my semi-freshly acquired <code>aarch64</code> tablet convertible.
 The device is nice, it's basically a portable Linux device which I can use for typing stuff on the go, or with some tinkering maybe even play games on the go.
 The crux is however is that computers are mind-bogglingly stupid<sup class="footnote-reference"><a href="#h2g2-ref-1">1</a></sup>.</p>
-<p>Contrary to the popular opinion of "" we did not actually make sand <em>think</em>, not yet anyway.
+<p>Contrary to the popular opinion of "the computer deleted my file" or "the computer keeps downloading files to the wrong directory" we did not actually make sand <em>think</em>, not yet anyway.
 All a computer ever does is what someone told it to do, specifically, in a structured format that the computer can follow; this applies to all computers regardless of whether it's a physical device, some emulator, or even the JVM – or any byte code interpreter for that matter.
 They are incredibly single-minded if you can even call it that.
 The problems that people have with computers are usually one of three things (IMHO, YMMV): hardware failure, interoperability, and "someone told this computer to do something I don't like".
 The first one is unavoidable to some extent.
 The second one is usually some vendor lock-in or some hardware standards thing, often caused by <a href="https://en.wikipedia.org/wiki/Not_invented_here">NIH</a> link, or some other <a href="https://en.wikipedia.org/wiki/Enshittification">enshittification</a> thing, avoidable to some extent, but also historical baggage more often than not.
-The last one.… well, this includes everything from hardware, via firmware, to software, up to and including settings, presets, etc., and it's one of the primary reasons why <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">FOSS</a> came into existence.</p>
-<p>And in this case – a Chromebook – someone at Google thought of a really fancy way to boot this device with some custom (largely?) Open Source firmware and whatnot to enable a verified boot, with signatures and such, to prevent intrusions.
-The intentions here being part of a bigger picture aren't really relevant right now, suffice to say getting mainline Linux to boot on these devices requires packing of the kernel and initrd in a special format (<a href="https://chromium.googlesource.com/chromiumos/platform/depthcharge/">Depthcharge</a>) to get the device to recognize this (not to mention persisting dev mode and tinkering with firmware write protection to disable verified boot).
+The last one.… well, this includes everything from hardware, via firmware, to software, up to and including settings, presets, etc., and it's one of the primary reasons why <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">FOSS</a> came into existence.
+So when someone says "the computer keeps downloading files to the wrong directory" what the underlying message is "someone configured the software on this computer to download files to a different directory than I want them in".
+I am <em>not</em> blaming the person who is using the computer.
+Sure, they <em>may</em> have explicitly set the wrong directory in their browsers preferences, but with the amount of software we shove into these boxes it may also be the complex interaction of three pieces of software all of which have different conventions and configurations.
+<em>Someone</em> configured those, either explicitly as a user, or implicitly through defaults shipped by your upstream vendor, or the defaults set in the software, or straight out "defaults" in terms of the way the code is written in.
+If the code of a software never checks the configuration setting you are setting despite it being the way to set things as per documentation then yes, someone forgot to tell the computer to ask you for your opinion (and you're just giving your opinion to the void).
+Right here and right now it is important to say that yes, there's always a person to point at, but no, you shouldn't actually do that.
+All of these "configuration choices" happen for a reason, and rarely is it just a simple mistake.</p>
+<ul>
+<li>often because software follows a standard (like the XDG specs for your desktop)</li>
+<li>sometimes because people didn't know the standard (when someone uses public IPv4 addresses in their private network because they didn't know about <a href="https://datatracker.ietf.org/doc/html/rfc1918">RFC 1918</a>)</li>
+<li>time or other resource constraints (like how my infrastructure is largely not available via Legacy IP<sup class="footnote-reference"><a href="#legacy-ip">2</a></sup> because it's just not worth it for me)</li>
+<li>unfortunately also because companies don't give a flying duck about making something configurable or even <em>usable</em> for a user (go ask Nintendo what <a href="https://web.archive.org/web/20240207134431/https://en-americas-support.nintendo.com/app/answers/detail/a_id/667/~/nintendo-3ds-system-update-history">that big warning notice on the 3DS update history</a> is all about)</li>
+</ul>
+<p>And in this case – a Chromebook – someone at Google thought of a really fancy way to boot this device with some custom (largely?) Open Source firmware and whatnot to enable a very fast and verified boot, with signatures and such, to prevent intrusions.
+I don't know why it was necessary to optimize the boot times of the bootloader of all things, but hey, at least the source code is available and the documentation is actually usable.
+The intentions here aren't really relevant right now, suffice to say getting mainline Linux to boot on these devices requires packing of the kernel and initrd in a special format (<a href="https://chromium.googlesource.com/chromiumos/platform/depthcharge/">Depthcharge</a>) to get the device to recognize this (not to mention persisting dev mode and tinkering with firmware write protection to disable verified boot).
 Okay, so far so good, this isn't the most complex computer thing I've done before.
 Why am I telling you all this?
 Well, first of all, this is the ramble section, what did you expect?
 Second, and much more importantly, because in trying to change something about this I had to learn a hard lesson — again.
-What I was trying to do is deploy <em>Das U-Boot</em> as a <em>kpart</em> image (like the kernel) so I could teach this device to just boot from a partition, which would have made testing and updating kernels much easier.
+What I was trying to do is deploy <a href="https://docs.u-boot.org/en/latest/index.html"><em>Das U-Boot</em></a> as a <em>kpart</em> image (like the kernel) so I could teach this device to just boot from a partition, which would have made testing and updating kernels much easier.
 There is even a documentation section on this exact thing, except it's for the device codenamed <em>snow</em> with <em>jerry</em> being listed as an alternative.
 I am writing this on <em>krane</em> however.</p>
 <p>Now comes the relevant part that I've been meaning to get to; I'm a network engineer.
@@ -217,10 +231,14 @@ No defconfig – okay, I used to compile my own kernels shouldn't be that hard.
 Nothing on the internet on what I need for this device type and the closest in the U-Boot tree with a defconfig was a single device with an <em>mt8183</em> that didn't quite match my hardware.
 This is where I get stuck.</p>
 <p>I – as a sysadmin-ish hybrid developer networking person – require documentation to base my stuff off of, and whenever something diverges from my – admittedly very broad – experience I get stuck.
-This entire blog is about writing down whatever I know so that I can reference it and so that other people can try and do stuff off of whatever I do.
+This entire blog is about writing down whatever I know so that I can reference it and so that other people can try and build stuff off of whatever I do.
 That is if I can actually keep up the writing, something I wouldn't bet on, but you never know what life throws at you, eh?</p>
+<p>\</p>
 <div class="footnote-definition" id="h2g2-ref-1"><sup class="footnote-definition-label">1</sup>
-<p>I can't promise that this was the last H₂G₂ reference.</p>
+<p>I can't promise that this was the last H₂G₂ reference. \</p>
+</div>
+<div class="footnote-definition" id="legacy-ip"><sup class="footnote-definition-label">2</sup>
+<p>When I say <em>Legacy IP</em> I refer to IPv4. I don't like IPv4, and I'd rather we fully commit to IPv6 already. \</p>
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="legacy"><a class="header" href="#legacy">Legacy</a></h1>
 <p>This is the legacy section of this blag.
