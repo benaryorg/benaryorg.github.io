@@ -2,6 +2,7 @@
 
 - [Introduction](./introduction.md)
 - [Ramble](./ramble.md)
+- [Networking](./net/index.md)
 - [Legacy](./legacy/index.md)
 	- [Programming]()
 		- [Getting Started With Programming](./legacy/programming/getting_started.md)
