@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Introduction - benaryorg.github.io</title>
+        <title>Ramble - benaryorg.github.io</title>
 
 
         <!-- Custom HTML head -->
@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html" class="active"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="ramble.html"><strong aria-hidden="true">2.</strong> Ramble</a></li><li class="chapter-item expanded "><a href="legacy/index.html"><strong aria-hidden="true">3.</strong> Legacy</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="legacy/programming/getting_started.html"><strong aria-hidden="true">3.1.1.</strong> Getting Started With Programming</a></li><li class="chapter-item expanded "><a href="legacy/programming/plain_code.html"><strong aria-hidden="true">3.1.2.</strong> Plain Code</a></li><li class="chapter-item expanded "><a href="legacy/programming/a_to_b.html"><strong aria-hidden="true">3.1.3.</strong> A to B</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Meta</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="legacy/meta/how_to_build_a_regexp.html"><strong aria-hidden="true">3.2.1.</strong> How to build a RegExp?</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="assignments.html"><strong aria-hidden="true">4.</strong> Assignments</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="assignments/programming/finbean_linked_list.html"><strong aria-hidden="true">4.1.1.</strong> Finbean Linked List</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="ramble.html" class="active"><strong aria-hidden="true">2.</strong> Ramble</a></li><li class="chapter-item expanded "><a href="legacy/index.html"><strong aria-hidden="true">3.</strong> Legacy</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="legacy/programming/getting_started.html"><strong aria-hidden="true">3.1.1.</strong> Getting Started With Programming</a></li><li class="chapter-item expanded "><a href="legacy/programming/plain_code.html"><strong aria-hidden="true">3.1.2.</strong> Plain Code</a></li><li class="chapter-item expanded "><a href="legacy/programming/a_to_b.html"><strong aria-hidden="true">3.1.3.</strong> A to B</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Meta</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="legacy/meta/how_to_build_a_regexp.html"><strong aria-hidden="true">3.2.1.</strong> How to build a RegExp?</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="assignments.html"><strong aria-hidden="true">4.</strong> Assignments</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="assignments/programming/finbean_linked_list.html"><strong aria-hidden="true">4.1.1.</strong> Finbean Linked List</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -173,21 +173,56 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<p>So you've found my <a href="https://xkcd.com/148/">blag</a>?
-It's not like I've deliberately hidden so yeah, figures.</p>
-<p>At some point I wanted to write a few articles about how I write code, and I actually started writing those.
-You can find them in the <em>Legacy</em> section.</p>
-<p>In case you read this in a far away future in which I actually did follow through with my plan; chances are you'll also see a few entries in a journal-like fashion.
-I've been pondering about it for a while and it seems feasible to actually jot down notes while doing some work and then just sort those notes when I'm done doing whatever I was doing and using that as both a journal and a blog that I can refer to at the same time.
-As said, far away future, so if you're looking for that and it's not here yet, chances are it doesn't even exist.</p>
+                        <h1 id="ramble"><a class="header" href="#ramble">Ramble</a></h1>
+<p>This is the mandatory ramble section I guess.
+Here I'll explain some of my background and what this is all about.</p>
+<p>I'm currently typing this on my semi-freshly acquired <code>aarch64</code> tablet convertible.
+The device is nice, it's basically a portable Linux device which I can use for typing stuff on the go, or with some tinkering maybe even play games on the go.
+The crux is however is that computers are mind-bogglingly stupid<sup class="footnote-reference"><a href="#h2g2-ref-1">1</a></sup>.</p>
+<p>Contrary to the popular opinion of "" we did not actually make sand <em>think</em>, not yet anyway.
+All a computer ever does is what someone told it to do, specifically, in a structured format that the computer can follow; this applies to all computers regardless of whether it's a physical device, some emulator, or even the JVM – or any byte code interpreter for that matter.
+They are incredibly single-minded if you can even call it that.
+The problems that people have with computers are usually one of three things (IMHO, YMMV): hardware failure, interoperability, and "someone told this computer to do something I don't like".
+The first one is unavoidable to some extent.
+The second one is usually some vendor lock-in or some hardware standards thing, often caused by <a href="https://en.wikipedia.org/wiki/Not_invented_here">NIH</a> link, or some other <a href="https://en.wikipedia.org/wiki/Enshittification">enshittification</a> thing, avoidable to some extent, but also historical baggage more often than not.
+The last one.… well, this includes everything from hardware, via firmware, to software, up to and including settings, presets, etc., and it's one of the primary reasons why <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">FOSS</a> came into existence.</p>
+<p>And in this case – a Chromebook – someone at Google thought of a really fancy way to boot this device with some custom (largely?) Open Source firmware and whatnot to enable a verified boot, with signatures and such, to prevent intrusions.
+The intentions here being part of a bigger picture aren't really relevant right now, suffice to say getting mainline Linux to boot on these devices requires packing of the kernel and initrd in a special format (<a href="https://chromium.googlesource.com/chromiumos/platform/depthcharge/">Depthcharge</a>) to get the device to recognize this (not to mention persisting dev mode and tinkering with firmware write protection to disable verified boot).
+Okay, so far so good, this isn't the most complex computer thing I've done before.
+Why am I telling you all this?
+Well, first of all, this is the ramble section, what did you expect?
+Second, and much more importantly, because in trying to change something about this I had to learn a hard lesson — again.
+What I was trying to do is deploy <em>Das U-Boot</em> as a <em>kpart</em> image (like the kernel) so I could teach this device to just boot from a partition, which would have made testing and updating kernels much easier.
+There is even a documentation section on this exact thing, except it's for the device codenamed <em>snow</em> with <em>jerry</em> being listed as an alternative.
+I am writing this on <em>krane</em> however.</p>
+<p>Now comes the relevant part that I've been meaning to get to; I'm a network engineer.
+I love routing packets from one device to the next.
+That's what I do at home.
+I also tinker with my software a bit, but usually nothing that nobody's done before.
+That thing however?
+No dice.
+The Linux kernel has <a href="https://en.wikipedia.org/wiki/Devicetree">DTBs</a> for my device (and the entire family), heck <a href="https://mobile.nixos.org/"><em>mobile-nixos</em></a> has this entire device family covered including the <em>kpart</em> generation using <em>depthcharge</em>.
+U-Boot has none of that.
+No DTBs – okay, I can copy those off of the Linux build.
+No defconfig – okay, I used to compile my own kernels shouldn't be that hard.
+Nothing on the internet on what I need for this device type and the closest in the U-Boot tree with a defconfig was a single device with an <em>mt8183</em> that didn't quite match my hardware.
+This is where I get stuck.</p>
+<p>I – as a sysadmin-ish hybrid developer networking person – require documentation to base my stuff off of, and whenever something diverges from my – admittedly very broad – experience I get stuck.
+This entire blog is about writing down whatever I know so that I can reference it and so that other people can try and do stuff off of whatever I do.
+That is if I can actually keep up the writing, something I wouldn't bet on, but you never know what life throws at you, eh?</p>
+<div class="footnote-definition" id="h2g2-ref-1"><sup class="footnote-definition-label">1</sup>
+<p>I can't promise that this was the last H₂G₂ reference.</p>
+</div>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
-                            <a rel="next prefetch" href="ramble.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="legacy/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -197,8 +232,11 @@ As said, far away future, so if you're looking for that and it's not here yet, c
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
-                    <a rel="next prefetch" href="ramble.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="legacy/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

@@ -1,14 +1,16 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Plain Code - benaryorg.github.io</title>
+
+
         <!-- Custom HTML head -->
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        
         <meta name="description" content="benaryorg&#x27;s blag">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="../../favicon.svg">
         <link rel="shortcut icon" href="../../favicon.png">
@@ -16,25 +18,29 @@
         <link rel="stylesheet" href="../../css/general.css">
         <link rel="stylesheet" href="../../css/chrome.css">
         <link rel="stylesheet" href="../../css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="../../fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../../highlight.css">
         <link rel="stylesheet" href="../../tomorrow-night.css">
         <link rel="stylesheet" href="../../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -50,50 +56,81 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
 
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../../legacy/index.html"><strong aria-hidden="true">2.</strong> Legacy</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../legacy/programming/getting_started.html"><strong aria-hidden="true">2.1.1.</strong> Getting Started With Programming</a></li><li class="chapter-item expanded "><a href="../../legacy/programming/plain_code.html" class="active"><strong aria-hidden="true">2.1.2.</strong> Plain Code</a></li><li class="chapter-item expanded "><a href="../../legacy/programming/a_to_b.html"><strong aria-hidden="true">2.1.3.</strong> A to B</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> Meta</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../legacy/meta/how_to_build_a_regexp.html"><strong aria-hidden="true">2.2.1.</strong> How to build a RegExp?</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../assignments.html"><strong aria-hidden="true">3.</strong> Assignments</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../assignments/programming/finbean_linked_list.html"><strong aria-hidden="true">3.1.1.</strong> Finbean Linked List</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../../ramble.html"><strong aria-hidden="true">2.</strong> Ramble</a></li><li class="chapter-item expanded "><a href="../../legacy/index.html"><strong aria-hidden="true">3.</strong> Legacy</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../legacy/programming/getting_started.html"><strong aria-hidden="true">3.1.1.</strong> Getting Started With Programming</a></li><li class="chapter-item expanded "><a href="../../legacy/programming/plain_code.html" class="active"><strong aria-hidden="true">3.1.2.</strong> Plain Code</a></li><li class="chapter-item expanded "><a href="../../legacy/programming/a_to_b.html"><strong aria-hidden="true">3.1.3.</strong> A to B</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Meta</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../legacy/meta/how_to_build_a_regexp.html"><strong aria-hidden="true">3.2.1.</strong> How to build a RegExp?</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../assignments.html"><strong aria-hidden="true">4.</strong> Assignments</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../assignments/programming/finbean_linked_list.html"><strong aria-hidden="true">4.1.1.</strong> Finbean Linked List</a></li></ol></li></ol></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -110,6 +147,7 @@
                         <a href="../../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -123,8 +161,9 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -174,13 +213,14 @@ But what's the stuff around it you ask?
 Well, <code>void</code> means <em>nothing</em>.</p>
 <p>C is typed, meaning everything has a type.
 The notation used for declaring things in C is one of the below:</p>
-<table><thead><tr><th>Name</th><th>Declaration</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Declaration</th></tr></thead><tbody>
 <tr><td>Variable</td><td><code>type name</code></td></tr>
 <tr><td>Array</td><td><code>type name[length]</code></td></tr>
 <tr><td>Function</td><td><code>return_type name(variables)</code></td></tr>
 </tbody></table>
+</div>
 <p>That means we are declaring a function named <code>main</code> (our entry point) that
-&quot;computes&quot; nothing and needs nothing to do that.
+"computes" nothing and needs nothing to do that.
 Seems about right.</p>
 <p>Furthermore we have curly braces that denote the function body: the start and
 end of the function.</p>
@@ -202,7 +242,7 @@ A variable is a piece of memory with a fixed size.
 As soon as you have a variable you can do with it's memory whatever you like.</p>
 <p>C does have certain types of variables defined for you (assuming x86_64
 platform):</p>
-<table><thead><tr><th>Name</th><th>Size</th><th>Type</th><th>Values</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Size</th><th>Type</th><th>Values</th></tr></thead><tbody>
 <tr><td>Integer</td><td>4 byte</td><td><code>int</code></td><td>-2147483648 to 2147483647</td></tr>
 <tr><td>Short</td><td>2 byte</td><td><code>short int</code></td><td>-32768 to 32767</td></tr>
 <tr><td>Character</td><td>1 byte</td><td><code>char</code></td><td>-128 to 127</td></tr>
@@ -210,6 +250,7 @@ platform):</p>
 <tr><td>Double</td><td>8 byte</td><td><code>double</code></td><td>very low to very high floating point</td></tr>
 <tr><td>Float</td><td>4 byte</td><td><code>float</code></td><td>low to high floating point</td></tr>
 </tbody></table>
+</div>
 <p>Integral types including characters can be made <code>unsigned</code> by prefixing them
 with unsigned, making them hold only positive numbers, extending their upper
 bounds by the capped lower bounds.</p>
@@ -288,10 +329,10 @@ int *data = 0;
 // program crashes above
 </code></pre>
 <p>Why is 0 special?
-Well, some people thought, why don't take 0 as a special value for &quot;pointer
-points at nothing&quot;.
+Well, some people thought, why don't take 0 as a special value for "pointer
+points at nothing".
 Since then this is convention.
-All modern operating systems have the address 0 always &quot;unmapped&quot; meaning if
+All modern operating systems have the address 0 always "unmapped" meaning if
 you try to access it, whether it be read or write, the program instantly
 crashes.</p>
 <h2 id="pointers-and-arrays"><a class="header" href="#pointers-and-arrays">Pointers and Arrays</a></h2>
@@ -332,7 +373,7 @@ int *ptr = 0;
 // this means it points at the address 4
 int *further = ptr+1;
 </code></pre>
-<p>I wrote &quot;the second integer in memory&quot; which is kind of a contrary statement to
+<p>I wrote "the second integer in memory" which is kind of a contrary statement to
 what I said before.
 Memory is just a bunch of bytes.
 On RAM level there is no such thing as an integer.
@@ -353,7 +394,7 @@ arr[3]; // 0
 </code></pre>
 <p>Something worth noting here is that the first element (0) contains the lowest
 byte of the integer.
-This is because the platform I am assuming (x86_64) is &quot;little endian&quot;.
+This is because the platform I am assuming (x86_64) is "little endian".
 More information on <a href="https://en.wikipedia.org/wiki/Endianness">Wikipedia</a>.</p>
 <h2 id="strings"><a class="header" href="#strings">Strings</a></h2>
 <p>Strings as mentioned above are a special kind of array, a character array.
@@ -371,10 +412,10 @@ You see that having a 0 at the end is perfect for telling where a string ends.</
 <p>And because we use strings that often there is a convenient way to write them:</p>
 <pre><code class="language-c">// we can leave the number out if we directly initialize it
 // because the length is known at compile-time because we set the values
-char array[] = {97,104,97,0}; // ASCII for &quot;aha&quot; and a zero at the end
+char array[] = {97,104,97,0}; // ASCII for "aha" and a zero at the end
 
 // means the same (including the zero at the end).
-char same[] = &quot;aha&quot;;
+char same[] = "aha";
 </code></pre>
 <h1 id="to-be-continued"><a class="header" href="#to-be-continued">To Be Continued</a></h1>
 
@@ -385,9 +426,11 @@ char same[] = &quot;aha&quot;;
                             <a rel="prev" href="../../legacy/programming/getting_started.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                            <a rel="next" href="../../legacy/programming/a_to_b.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+
+                            <a rel="next prefetch" href="../../legacy/programming/a_to_b.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
@@ -397,23 +440,33 @@ char same[] = &quot;aha&quot;;
                     <a rel="prev" href="../../legacy/programming/getting_started.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                    <a rel="next" href="../../legacy/programming/a_to_b.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+
+                    <a rel="next prefetch" href="../../legacy/programming/a_to_b.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
 
         </div>
 
-        <script type="text/javascript">
+
+
+
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
 
         <!-- Custom JS scripts -->
+
+
+    </div>
     </body>
 </html>

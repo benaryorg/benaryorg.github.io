@@ -1,15 +1,17 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>benaryorg.github.io</title>
-        <meta name="robots" content="noindex" />
+        <meta name="robots" content="noindex">
+
+
         <!-- Custom HTML head -->
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        
         <meta name="description" content="benaryorg&#x27;s blag">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -17,25 +19,29 @@
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
         <link rel="stylesheet" href="css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -51,50 +57,81 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
 
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="legacy/index.html"><strong aria-hidden="true">2.</strong> Legacy</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="legacy/programming/getting_started.html"><strong aria-hidden="true">2.1.1.</strong> Getting Started With Programming</a></li><li class="chapter-item expanded "><a href="legacy/programming/plain_code.html"><strong aria-hidden="true">2.1.2.</strong> Plain Code</a></li><li class="chapter-item expanded "><a href="legacy/programming/a_to_b.html"><strong aria-hidden="true">2.1.3.</strong> A to B</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> Meta</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="legacy/meta/how_to_build_a_regexp.html"><strong aria-hidden="true">2.2.1.</strong> How to build a RegExp?</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="assignments.html"><strong aria-hidden="true">3.</strong> Assignments</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="assignments/programming/finbean_linked_list.html"><strong aria-hidden="true">3.1.1.</strong> Finbean Linked List</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="ramble.html"><strong aria-hidden="true">2.</strong> Ramble</a></li><li class="chapter-item expanded "><a href="legacy/index.html"><strong aria-hidden="true">3.</strong> Legacy</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="legacy/programming/getting_started.html"><strong aria-hidden="true">3.1.1.</strong> Getting Started With Programming</a></li><li class="chapter-item expanded "><a href="legacy/programming/plain_code.html"><strong aria-hidden="true">3.1.2.</strong> Plain Code</a></li><li class="chapter-item expanded "><a href="legacy/programming/a_to_b.html"><strong aria-hidden="true">3.1.3.</strong> A to B</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Meta</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="legacy/meta/how_to_build_a_regexp.html"><strong aria-hidden="true">3.2.1.</strong> How to build a RegExp?</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="assignments.html"><strong aria-hidden="true">4.</strong> Assignments</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="assignments/programming/finbean_linked_list.html"><strong aria-hidden="true">4.1.1.</strong> Finbean Linked List</a></li></ol></li></ol></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -111,6 +148,7 @@
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -124,8 +162,9 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -143,6 +182,46 @@ You can find them in the <em>Legacy</em> section.</p>
 <p>In case you read this in a far away future in which I actually did follow through with my plan; chances are you'll also see a few entries in a journal-like fashion.
 I've been pondering about it for a while and it seems feasible to actually jot down notes while doing some work and then just sort those notes when I'm done doing whatever I was doing and using that as both a journal and a blog that I can refer to at the same time.
 As said, far away future, so if you're looking for that and it's not here yet, chances are it doesn't even exist.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ramble"><a class="header" href="#ramble">Ramble</a></h1>
+<p>This is the mandatory ramble section I guess.
+Here I'll explain some of my background and what this is all about.</p>
+<p>I'm currently typing this on my semi-freshly acquired <code>aarch64</code> tablet convertible.
+The device is nice, it's basically a portable Linux device which I can use for typing stuff on the go, or with some tinkering maybe even play games on the go.
+The crux is however is that computers are mind-bogglingly stupid<sup class="footnote-reference"><a href="#h2g2-ref-1">1</a></sup>.</p>
+<p>Contrary to the popular opinion of "" we did not actually make sand <em>think</em>, not yet anyway.
+All a computer ever does is what someone told it to do, specifically, in a structured format that the computer can follow; this applies to all computers regardless of whether it's a physical device, some emulator, or even the JVM – or any byte code interpreter for that matter.
+They are incredibly single-minded if you can even call it that.
+The problems that people have with computers are usually one of three things (IMHO, YMMV): hardware failure, interoperability, and "someone told this computer to do something I don't like".
+The first one is unavoidable to some extent.
+The second one is usually some vendor lock-in or some hardware standards thing, often caused by <a href="https://en.wikipedia.org/wiki/Not_invented_here">NIH</a> link, or some other <a href="https://en.wikipedia.org/wiki/Enshittification">enshittification</a> thing, avoidable to some extent, but also historical baggage more often than not.
+The last one.… well, this includes everything from hardware, via firmware, to software, up to and including settings, presets, etc., and it's one of the primary reasons why <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">FOSS</a> came into existence.</p>
+<p>And in this case – a Chromebook – someone at Google thought of a really fancy way to boot this device with some custom (largely?) Open Source firmware and whatnot to enable a verified boot, with signatures and such, to prevent intrusions.
+The intentions here being part of a bigger picture aren't really relevant right now, suffice to say getting mainline Linux to boot on these devices requires packing of the kernel and initrd in a special format (<a href="https://chromium.googlesource.com/chromiumos/platform/depthcharge/">Depthcharge</a>) to get the device to recognize this (not to mention persisting dev mode and tinkering with firmware write protection to disable verified boot).
+Okay, so far so good, this isn't the most complex computer thing I've done before.
+Why am I telling you all this?
+Well, first of all, this is the ramble section, what did you expect?
+Second, and much more importantly, because in trying to change something about this I had to learn a hard lesson — again.
+What I was trying to do is deploy <em>Das U-Boot</em> as a <em>kpart</em> image (like the kernel) so I could teach this device to just boot from a partition, which would have made testing and updating kernels much easier.
+There is even a documentation section on this exact thing, except it's for the device codenamed <em>snow</em> with <em>jerry</em> being listed as an alternative.
+I am writing this on <em>krane</em> however.</p>
+<p>Now comes the relevant part that I've been meaning to get to; I'm a network engineer.
+I love routing packets from one device to the next.
+That's what I do at home.
+I also tinker with my software a bit, but usually nothing that nobody's done before.
+That thing however?
+No dice.
+The Linux kernel has <a href="https://en.wikipedia.org/wiki/Devicetree">DTBs</a> for my device (and the entire family), heck <a href="https://mobile.nixos.org/"><em>mobile-nixos</em></a> has this entire device family covered including the <em>kpart</em> generation using <em>depthcharge</em>.
+U-Boot has none of that.
+No DTBs – okay, I can copy those off of the Linux build.
+No defconfig – okay, I used to compile my own kernels shouldn't be that hard.
+Nothing on the internet on what I need for this device type and the closest in the U-Boot tree with a defconfig was a single device with an <em>mt8183</em> that didn't quite match my hardware.
+This is where I get stuck.</p>
+<p>I – as a sysadmin-ish hybrid developer networking person – require documentation to base my stuff off of, and whenever something diverges from my – admittedly very broad – experience I get stuck.
+This entire blog is about writing down whatever I know so that I can reference it and so that other people can try and do stuff off of whatever I do.
+That is if I can actually keep up the writing, something I wouldn't bet on, but you never know what life throws at you, eh?</p>
+<div class="footnote-definition" id="h2g2-ref-1"><sup class="footnote-definition-label">1</sup>
+<p>I can't promise that this was the last H₂G₂ reference.</p>
+</div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="legacy"><a class="header" href="#legacy">Legacy</a></h1>
 <p>This is the legacy section of this blag.
 As the same suggests all of these posts have been carried over from the previous version, so they may not be complete, up-to-date, or anything at all.
@@ -260,7 +339,7 @@ I'll just assume a BIOS.</p>
 *[UEFI]: newer than BIOS, but not necessarily better.</p>
 <p>The BIOS initialises devices and provides some way of configuring certain very
 low-level (very deep down the stack) configuration options.
-This can for example be &quot;where to boot from&quot;.
+This can for example be "where to boot from".
 If you just boot from the internal disk it will read the first 512 bytes from
 the disk and interpret those.</p>
 <h4 id="binary"><a class="header" href="#binary">Binary</a></h4>
@@ -269,13 +348,14 @@ Some long time ago computer people decided they need to store data in some way.
 The most hardwarish way to do that, as early computers were the size of a
 house and did mostly consist of hard-wired logic, was to build some electronic
 part that could store a simple signal:</p>
-<table><thead><tr><th>State</th><th>Number</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>State</th><th>Number</th></tr></thead><tbody>
 <tr><td>Off</td><td>0</td></tr>
 <tr><td>On</td><td>1</td></tr>
 </tbody></table>
-<p>This is what we call a &quot;bit&quot;.
+</div>
+<p>This is what we call a "bit".
 A bit is not very much.
-So we just take eight of them and call it a &quot;byte&quot;.
+So we just take eight of them and call it a "byte".
 If you have a byte written out in numbers it would be between (inclusive)
 <code>00000000</code> (lowest) and <code>11111111</code> (highest).
 Now, if we count the number of different patterns we can store inside that we
@@ -295,8 +375,8 @@ loaded data to and the data is then executed by the CPU.</p>
 code on the CPU.
 This means this code now has full control over the entire computer.
 What it does?
-Well, the process of starting a computer is called &quot;booting&quot;.
-There are several parts involved in booting, including a &quot;bootloader&quot;.</p>
+Well, the process of starting a computer is called "booting".
+There are several parts involved in booting, including a "bootloader".</p>
 <h3 id="bootloader"><a class="header" href="#bootloader">Bootloader</a></h3>
 <p>The bootloader consists of at least two parts, the first part being the MBR.
 As 512 bytes don't really give you a lot of opportunity to do something other
@@ -323,12 +403,12 @@ assist in doing things.</p>
 </li>
 </ul>
 <p>This second bootloader often is large enough to know how to properly read other
-data than just &quot;the first 512 byte&quot; meaning it can already read data from the
+data than just "the first 512 byte" meaning it can already read data from the
 disk that determines it's behaviour.
 This usually means that you can already use configuration files or an
 equivalent to instruct this part of the bootloader.</p>
 <p>The bootloader then continues to load the first bit of your Operating System,
-called the &quot;kernel&quot;.</p>
+called the "kernel".</p>
 <h3 id="kernel"><a class="header" href="#kernel">Kernel</a></h3>
 <p>From here on things are quite different depending on your OS so I'll save it
 for a later blog post.</p>
@@ -372,13 +452,14 @@ But what's the stuff around it you ask?
 Well, <code>void</code> means <em>nothing</em>.</p>
 <p>C is typed, meaning everything has a type.
 The notation used for declaring things in C is one of the below:</p>
-<table><thead><tr><th>Name</th><th>Declaration</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Declaration</th></tr></thead><tbody>
 <tr><td>Variable</td><td><code>type name</code></td></tr>
 <tr><td>Array</td><td><code>type name[length]</code></td></tr>
 <tr><td>Function</td><td><code>return_type name(variables)</code></td></tr>
 </tbody></table>
+</div>
 <p>That means we are declaring a function named <code>main</code> (our entry point) that
-&quot;computes&quot; nothing and needs nothing to do that.
+"computes" nothing and needs nothing to do that.
 Seems about right.</p>
 <p>Furthermore we have curly braces that denote the function body: the start and
 end of the function.</p>
@@ -400,7 +481,7 @@ A variable is a piece of memory with a fixed size.
 As soon as you have a variable you can do with it's memory whatever you like.</p>
 <p>C does have certain types of variables defined for you (assuming x86_64
 platform):</p>
-<table><thead><tr><th>Name</th><th>Size</th><th>Type</th><th>Values</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Size</th><th>Type</th><th>Values</th></tr></thead><tbody>
 <tr><td>Integer</td><td>4 byte</td><td><code>int</code></td><td>-2147483648 to 2147483647</td></tr>
 <tr><td>Short</td><td>2 byte</td><td><code>short int</code></td><td>-32768 to 32767</td></tr>
 <tr><td>Character</td><td>1 byte</td><td><code>char</code></td><td>-128 to 127</td></tr>
@@ -408,6 +489,7 @@ platform):</p>
 <tr><td>Double</td><td>8 byte</td><td><code>double</code></td><td>very low to very high floating point</td></tr>
 <tr><td>Float</td><td>4 byte</td><td><code>float</code></td><td>low to high floating point</td></tr>
 </tbody></table>
+</div>
 <p>Integral types including characters can be made <code>unsigned</code> by prefixing them
 with unsigned, making them hold only positive numbers, extending their upper
 bounds by the capped lower bounds.</p>
@@ -486,10 +568,10 @@ int *data = 0;
 // program crashes above
 </code></pre>
 <p>Why is 0 special?
-Well, some people thought, why don't take 0 as a special value for &quot;pointer
-points at nothing&quot;.
+Well, some people thought, why don't take 0 as a special value for "pointer
+points at nothing".
 Since then this is convention.
-All modern operating systems have the address 0 always &quot;unmapped&quot; meaning if
+All modern operating systems have the address 0 always "unmapped" meaning if
 you try to access it, whether it be read or write, the program instantly
 crashes.</p>
 <h2 id="pointers-and-arrays"><a class="header" href="#pointers-and-arrays">Pointers and Arrays</a></h2>
@@ -530,7 +612,7 @@ int *ptr = 0;
 // this means it points at the address 4
 int *further = ptr+1;
 </code></pre>
-<p>I wrote &quot;the second integer in memory&quot; which is kind of a contrary statement to
+<p>I wrote "the second integer in memory" which is kind of a contrary statement to
 what I said before.
 Memory is just a bunch of bytes.
 On RAM level there is no such thing as an integer.
@@ -551,7 +633,7 @@ arr[3]; // 0
 </code></pre>
 <p>Something worth noting here is that the first element (0) contains the lowest
 byte of the integer.
-This is because the platform I am assuming (x86_64) is &quot;little endian&quot;.
+This is because the platform I am assuming (x86_64) is "little endian".
 More information on <a href="https://en.wikipedia.org/wiki/Endianness">Wikipedia</a>.</p>
 <h2 id="strings"><a class="header" href="#strings">Strings</a></h2>
 <p>Strings as mentioned above are a special kind of array, a character array.
@@ -569,10 +651,10 @@ You see that having a 0 at the end is perfect for telling where a string ends.</
 <p>And because we use strings that often there is a convenient way to write them:</p>
 <pre><code class="language-c">// we can leave the number out if we directly initialize it
 // because the length is known at compile-time because we set the values
-char array[] = {97,104,97,0}; // ASCII for &quot;aha&quot; and a zero at the end
+char array[] = {97,104,97,0}; // ASCII for "aha" and a zero at the end
 
 // means the same (including the zero at the end).
-char same[] = &quot;aha&quot;;
+char same[] = "aha";
 </code></pre>
 <h1 id="to-be-continued"><a class="header" href="#to-be-continued">To Be Continued</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="my-way-of-programming"><a class="header" href="#my-way-of-programming">My Way of Programming</a></h1>
@@ -609,7 +691,7 @@ designed that way:</p>
 Imagine a complete web application which is structured into smaller parts each
 doing one single thing (adhering to the UNIX philosophy).
 One of these modules could be something along the lines:</p>
-<pre><code class="language-haskell">-- called with a &quot;map&quot; from path to image and the request
+<pre><code class="language-haskell">-- called with a "map" from path to image and the request
 -- returns the response to be sent
 handleRequest :: [(Path,Image)] -&gt; Request -&gt; Response
 handleRequest images request =
@@ -650,7 +732,7 @@ unneeded state.</p>
 <p>There will be no race conditions in this code.
 You will be able to quickly scale out with more threads or even more hosts if
 needed.
-You get all this &quot;for free&quot;.</p>
+You get all this "for free".</p>
 <h2 id="reproducible"><a class="header" href="#reproducible">Reproducible</a></h2>
 <p>Oh noes, you found a bug.
 Good luck reproducing this without full step-by-step instructions.
@@ -683,7 +765,7 @@ as soon as you see <code>.*</code> or similar constructs in inappropriate places
 My preferred syntax is <code>m{something}</code> and <code>s{a}{b}g</code> so I'll stick with those.</p>
 <p>You can try all examples using:</p>
 <pre><code class="language-bash"># for searches, just start typing, quit using ^D
-perl -ne 'm{a(.)c} &amp;&amp; print &quot;$1\n&quot;'
+perl -ne 'm{a(.)c} &amp;&amp; print "$1\n"'
 # for replacements
 perl -pe 's{a.c}{abc}g'
 </code></pre>
@@ -719,7 +801,7 @@ thing.</p>
 <p>First try, without even looking at the format of the logs: <code>m{^.*&lt;HOST&gt;.*$}</code></p>
 <p>You probably messed up very hard here.
 To explain why you've messed up so hard, let's look at one line of logs:</p>
-<pre><code class="language-text">10.0.0.1 - - [16/Jul/2017:15:38:54 +0200] &quot;GET /robots.txt HTTP/1.0&quot; 404 319 &quot;-&quot; &quot;Mozilla/5.0 (compatible; AhrefsBot/5.2; +http://ahrefs.com/robot/)&quot; &quot;-&quot;
+<pre><code class="language-text">10.0.0.1 - - [16/Jul/2017:15:38:54 +0200] "GET /robots.txt HTTP/1.0" 404 319 "-" "Mozilla/5.0 (compatible; AhrefsBot/5.2; +http://ahrefs.com/robot/)" "-"
 </code></pre>
 <p>I took that line out of my server, the <em>10.0.0.1</em> is the part that we want
 (please ignore that it's an internal IP).</p>
@@ -759,7 +841,7 @@ to work.</p>
 As said above, this time we want to get something that is <em>not</em> right at the
 start.
 We'll look at the following line:</p>
-<pre><code class="language-text">[16/Jul/2017:16:27:41 +0200] openbsd.cloud.bsocat.net - - 66.133.109.36 &quot;GET /.well-known/acme-challenge/tTRnUGY9gZEVz2llGWqn1m3mHznMDOFH3zCXsgelh7w HTTP/1.1&quot; 200 87
+<pre><code class="language-text">[16/Jul/2017:16:27:41 +0200] openbsd.cloud.bsocat.net - - 66.133.109.36 "GET /.well-known/acme-challenge/tTRnUGY9gZEVz2llGWqn1m3mHznMDOFH3zCXsgelh7w HTTP/1.1" 200 87
 </code></pre>
 <p>This is a slightly modified OpenBSD httpd log-format.
 By <em>slightly</em> I mean:</p>
@@ -769,7 +851,7 @@ By <em>slightly</em> I mean:</p>
 </ul>
 <p>Now let's do this:</p>
 <pre><code class="language-text"># copy the line, verbatim
-[16/Jul/2017:16:27:41 +0200] openbsd.cloud.bsocat.net - - 66.133.109.36 &quot;GET /.well-known/acme-challenge/tTRnUGY9gZEVz2llGWqn1m3mHznMDOFH3zCXsgelh7w HTTP/1.1&quot; 200 87
+[16/Jul/2017:16:27:41 +0200] openbsd.cloud.bsocat.net - - 66.133.109.36 "GET /.well-known/acme-challenge/tTRnUGY9gZEVz2llGWqn1m3mHznMDOFH3zCXsgelh7w HTTP/1.1" 200 87
 
 # remove everything after the needle (except for the delimiter), we don't need it
 [16/Jul/2017:16:27:41 +0200] openbsd.cloud.bsocat.net - - 66.133.109.36\s
@@ -788,7 +870,7 @@ By <em>slightly</em> I mean:</p>
 # let's do this the easy way and just replace using dots for the date
 ^\[../.../....:..:..:.. .....\] openbsd\.cloud\.bsocat\.net - - &lt;HOST&gt;\s
 
-# for the other fields we just specify them to &quot;not contain spaces&quot; as these
+# for the other fields we just specify them to "not contain spaces" as these
 # are used for delimiting, so they will not occur in the fields
 ^\[../.../....:..:..:.. .....\] [^\s]+ [^\s]+ [^\s]+ &lt;HOST&gt;\s
 
@@ -798,7 +880,7 @@ By <em>slightly</em> I mean:</p>
 <h3 id="how-do-we-check"><a class="header" href="#how-do-we-check">How do we check?</a></h3>
 <p>If it's <em>fail2ban</em>, just run that.
 For everything else:</p>
-<pre><code class="language-bash">perl -ne 'm{^\[../.../....:..:..:..\s.....\]\s[^\s]+\s[^\s]+\s[^\s]+\s([^\s]+)\s} &amp;&amp; print &quot;$1\n&quot;'
+<pre><code class="language-bash">perl -ne 'm{^\[../.../....:..:..:..\s.....\]\s[^\s]+\s[^\s]+\s[^\s]+\s([^\s]+)\s} &amp;&amp; print "$1\n"'
 </code></pre>
 <p>This should output only the IP we were looking for.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="assignments"><a class="header" href="#assignments">Assignments</a></h1>
@@ -818,7 +900,7 @@ Basically Finbean studies computer science and writes code.
 Rookie code I'd probably say, but we've all been rookies at some point, and there's only so far you can make someone go on their assignments, so sometimes you code along.</p>
 <h2 id="the-assignment"><a class="header" href="#the-assignment">The Assignment</a></h2>
 <p>I don't know exactly what the assignment was, it was something about storing cuisines in a list, and you had to craft the list yourself I assume (otherwise, what the heck Finbean, that assignment would've taken like two minutes).
-Anyway, language is C++ and the &quot;IDE&quot; was vim, which <em>is</em> powerful enough as it is.
+Anyway, language is C++ and the "IDE" was vim, which <em>is</em> powerful enough as it is.
 Since I use vim daily <a href="https://github.com/benaryorg/dotfiles">my configuration</a> is elaborate, and my toolchain consists of a long list of compiler flags and some additional tools (like <em>valgrind</em> or <em>gdb</em>).
 For this assignment however I used <a href="https://www.onlinegdb.com/9C4vV0Rv30">onlinegdb.com</a> as it was easiest, despite running Gentoo and therefore having C++ compilers at hand on every single machine I have.</p>
 <h2 id="code"><a class="header" href="#code">Code</a></h2>
@@ -830,7 +912,7 @@ For this assignment however I used <a href="https://www.onlinegdb.com/9C4vV0Rv30
  * purpose with or without fee is hereby granted, provided that the above
  * copyright notice and this permission notice appear in all copies.
  *
- * THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
  * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
  * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
@@ -969,34 +1051,34 @@ public:
 
 void print_node(const string *data)
 {
-	cout &lt;&lt; &quot;data: &quot; &lt;&lt; *data &lt;&lt; endl;
+	cout &lt;&lt; "data: " &lt;&lt; *data &lt;&lt; endl;
 }
 
 int main()
 {
 	unique_ptr&lt;MyList&gt; list(new MyList());
 
-	cout &lt;&lt; &quot;first run (empty):&quot; &lt;&lt; endl;
+	cout &lt;&lt; "first run (empty):" &lt;&lt; endl;
 	list-&gt;iterate(print_node);
 
-	list-&gt;insert(&quot;tomato salad&quot;);
-	cout &lt;&lt; &quot;second run (1):&quot; &lt;&lt; endl;
+	list-&gt;insert("tomato salad");
+	cout &lt;&lt; "second run (1):" &lt;&lt; endl;
 	list-&gt;iterate(print_node);
 
-	list-&gt;insert(&quot;french fries&quot;);
-	cout &lt;&lt; &quot;third run (2):&quot; &lt;&lt; endl;
+	list-&gt;insert("french fries");
+	cout &lt;&lt; "third run (2):" &lt;&lt; endl;
 	list-&gt;iterate(print_node);
 
-	list-&gt;insert(&quot;potato salad&quot;);
-	cout &lt;&lt; &quot;fourth run (3):&quot; &lt;&lt; endl;
+	list-&gt;insert("potato salad");
+	cout &lt;&lt; "fourth run (3):" &lt;&lt; endl;
 	list-&gt;iterate(print_node);
 
-	list-&gt;insert(&quot;marinated manatee&quot;);
-	cout &lt;&lt; &quot;fifth run (4):&quot; &lt;&lt; endl;
+	list-&gt;insert("marinated manatee");
+	cout &lt;&lt; "fifth run (4):" &lt;&lt; endl;
 	list-&gt;iterate(print_node);
 
-	list-&gt;remove(&quot;marinated manatee&quot;);
-	cout &lt;&lt; &quot;sixth run (3):&quot; &lt;&lt; endl;
+	list-&gt;remove("marinated manatee");
+	cout &lt;&lt; "sixth run (3):" &lt;&lt; endl;
 	list-&gt;iterate(print_node);
 
 	return 0;
@@ -1055,7 +1137,7 @@ Basically for storing structured data, sqlite is the way to go if you need query
 <p>I know I didn't fully finish the assignment, heck I didn't even have access to it to begin with, however I'd like your honest opinion on this if possible.
 To add a few things about my code: yes, my class naming sounds more like a tutorial than anything.
 Also, I would've gone the full route and either use templating or generics to get myself a generic list, or map even, that would allow me to re-use it for several parts of the assignment, again the full scope of which I didn't have access to, hence I only ever implemented the basic list type and the bare minimum of methods on it.
-Also, I'm &quot;new&quot; to C++, usually sticking to Rust, C, and various scripting language since I'm a systems administrator by profession (though both developer and devops suite my skillset equally well), hence not making use of the very powerful features of templating that C++ offers, a double edged sword, but one that when wielded properly can be a game-changer.
+Also, I'm "new" to C++, usually sticking to Rust, C, and various scripting language since I'm a systems administrator by profession (though both developer and devops suite my skillset equally well), hence not making use of the very powerful features of templating that C++ offers, a double edged sword, but one that when wielded properly can be a game-changer.
 In practice I'd stay away from templating though, since maintainability decreases drastically in such cases, and in my opinion maintainability is more important than performance often enough.
 Also note that modern compilers optimize better than humans can do, so the best we can do is choose an approach and algorithm and hope for the best, implementation specifics rarely matter, and making the code concise on a high-level often increases speed due to abstractions applied by the optimisation layer, such as tail-call optimisation.</p>
 <p>Feel free to send me an email if you can be bothered to go through this.</p>
@@ -1068,31 +1150,43 @@ Generally I prefer using the stack wherever possible for that reason exactly.</p
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
             </nav>
 
         </div>
 
-        <script type="text/javascript">
+
+
+
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
-        <script type="text/javascript">
+
+        <script>
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
+
+    </div>
     </body>
 </html>

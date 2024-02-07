@@ -1,14 +1,16 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Finbean Linked List - benaryorg.github.io</title>
+
+
         <!-- Custom HTML head -->
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        
         <meta name="description" content="benaryorg&#x27;s blag">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="../../favicon.svg">
         <link rel="shortcut icon" href="../../favicon.png">
@@ -16,25 +18,29 @@
         <link rel="stylesheet" href="../../css/general.css">
         <link rel="stylesheet" href="../../css/chrome.css">
         <link rel="stylesheet" href="../../css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="../../fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../../highlight.css">
         <link rel="stylesheet" href="../../tomorrow-night.css">
         <link rel="stylesheet" href="../../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -50,50 +56,81 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
 
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../../legacy/index.html"><strong aria-hidden="true">2.</strong> Legacy</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../legacy/programming/getting_started.html"><strong aria-hidden="true">2.1.1.</strong> Getting Started With Programming</a></li><li class="chapter-item expanded "><a href="../../legacy/programming/plain_code.html"><strong aria-hidden="true">2.1.2.</strong> Plain Code</a></li><li class="chapter-item expanded "><a href="../../legacy/programming/a_to_b.html"><strong aria-hidden="true">2.1.3.</strong> A to B</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> Meta</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../legacy/meta/how_to_build_a_regexp.html"><strong aria-hidden="true">2.2.1.</strong> How to build a RegExp?</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../assignments.html"><strong aria-hidden="true">3.</strong> Assignments</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../assignments/programming/finbean_linked_list.html" class="active"><strong aria-hidden="true">3.1.1.</strong> Finbean Linked List</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../../ramble.html"><strong aria-hidden="true">2.</strong> Ramble</a></li><li class="chapter-item expanded "><a href="../../legacy/index.html"><strong aria-hidden="true">3.</strong> Legacy</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../legacy/programming/getting_started.html"><strong aria-hidden="true">3.1.1.</strong> Getting Started With Programming</a></li><li class="chapter-item expanded "><a href="../../legacy/programming/plain_code.html"><strong aria-hidden="true">3.1.2.</strong> Plain Code</a></li><li class="chapter-item expanded "><a href="../../legacy/programming/a_to_b.html"><strong aria-hidden="true">3.1.3.</strong> A to B</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Meta</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../legacy/meta/how_to_build_a_regexp.html"><strong aria-hidden="true">3.2.1.</strong> How to build a RegExp?</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../assignments.html"><strong aria-hidden="true">4.</strong> Assignments</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../assignments/programming/finbean_linked_list.html" class="active"><strong aria-hidden="true">4.1.1.</strong> Finbean Linked List</a></li></ol></li></ol></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -110,6 +147,7 @@
                         <a href="../../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -123,8 +161,9 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -141,7 +180,7 @@ Basically Finbean studies computer science and writes code.
 Rookie code I'd probably say, but we've all been rookies at some point, and there's only so far you can make someone go on their assignments, so sometimes you code along.</p>
 <h2 id="the-assignment"><a class="header" href="#the-assignment">The Assignment</a></h2>
 <p>I don't know exactly what the assignment was, it was something about storing cuisines in a list, and you had to craft the list yourself I assume (otherwise, what the heck Finbean, that assignment would've taken like two minutes).
-Anyway, language is C++ and the &quot;IDE&quot; was vim, which <em>is</em> powerful enough as it is.
+Anyway, language is C++ and the "IDE" was vim, which <em>is</em> powerful enough as it is.
 Since I use vim daily <a href="https://github.com/benaryorg/dotfiles">my configuration</a> is elaborate, and my toolchain consists of a long list of compiler flags and some additional tools (like <em>valgrind</em> or <em>gdb</em>).
 For this assignment however I used <a href="https://www.onlinegdb.com/9C4vV0Rv30">onlinegdb.com</a> as it was easiest, despite running Gentoo and therefore having C++ compilers at hand on every single machine I have.</p>
 <h2 id="code"><a class="header" href="#code">Code</a></h2>
@@ -153,7 +192,7 @@ For this assignment however I used <a href="https://www.onlinegdb.com/9C4vV0Rv30
  * purpose with or without fee is hereby granted, provided that the above
  * copyright notice and this permission notice appear in all copies.
  *
- * THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
  * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
  * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
@@ -292,34 +331,34 @@ public:
 
 void print_node(const string *data)
 {
-	cout &lt;&lt; &quot;data: &quot; &lt;&lt; *data &lt;&lt; endl;
+	cout &lt;&lt; "data: " &lt;&lt; *data &lt;&lt; endl;
 }
 
 int main()
 {
 	unique_ptr&lt;MyList&gt; list(new MyList());
 
-	cout &lt;&lt; &quot;first run (empty):&quot; &lt;&lt; endl;
+	cout &lt;&lt; "first run (empty):" &lt;&lt; endl;
 	list-&gt;iterate(print_node);
 
-	list-&gt;insert(&quot;tomato salad&quot;);
-	cout &lt;&lt; &quot;second run (1):&quot; &lt;&lt; endl;
+	list-&gt;insert("tomato salad");
+	cout &lt;&lt; "second run (1):" &lt;&lt; endl;
 	list-&gt;iterate(print_node);
 
-	list-&gt;insert(&quot;french fries&quot;);
-	cout &lt;&lt; &quot;third run (2):&quot; &lt;&lt; endl;
+	list-&gt;insert("french fries");
+	cout &lt;&lt; "third run (2):" &lt;&lt; endl;
 	list-&gt;iterate(print_node);
 
-	list-&gt;insert(&quot;potato salad&quot;);
-	cout &lt;&lt; &quot;fourth run (3):&quot; &lt;&lt; endl;
+	list-&gt;insert("potato salad");
+	cout &lt;&lt; "fourth run (3):" &lt;&lt; endl;
 	list-&gt;iterate(print_node);
 
-	list-&gt;insert(&quot;marinated manatee&quot;);
-	cout &lt;&lt; &quot;fifth run (4):&quot; &lt;&lt; endl;
+	list-&gt;insert("marinated manatee");
+	cout &lt;&lt; "fifth run (4):" &lt;&lt; endl;
 	list-&gt;iterate(print_node);
 
-	list-&gt;remove(&quot;marinated manatee&quot;);
-	cout &lt;&lt; &quot;sixth run (3):&quot; &lt;&lt; endl;
+	list-&gt;remove("marinated manatee");
+	cout &lt;&lt; "sixth run (3):" &lt;&lt; endl;
 	list-&gt;iterate(print_node);
 
 	return 0;
@@ -378,7 +417,7 @@ Basically for storing structured data, sqlite is the way to go if you need query
 <p>I know I didn't fully finish the assignment, heck I didn't even have access to it to begin with, however I'd like your honest opinion on this if possible.
 To add a few things about my code: yes, my class naming sounds more like a tutorial than anything.
 Also, I would've gone the full route and either use templating or generics to get myself a generic list, or map even, that would allow me to re-use it for several parts of the assignment, again the full scope of which I didn't have access to, hence I only ever implemented the basic list type and the bare minimum of methods on it.
-Also, I'm &quot;new&quot; to C++, usually sticking to Rust, C, and various scripting language since I'm a systems administrator by profession (though both developer and devops suite my skillset equally well), hence not making use of the very powerful features of templating that C++ offers, a double edged sword, but one that when wielded properly can be a game-changer.
+Also, I'm "new" to C++, usually sticking to Rust, C, and various scripting language since I'm a systems administrator by profession (though both developer and devops suite my skillset equally well), hence not making use of the very powerful features of templating that C++ offers, a double edged sword, but one that when wielded properly can be a game-changer.
 In practice I'd stay away from templating though, since maintainability decreases drastically in such cases, and in my opinion maintainability is more important than performance often enough.
 Also note that modern compilers optimize better than humans can do, so the best we can do is choose an approach and algorithm and hope for the best, implementation specifics rarely matter, and making the code concise on a high-level often increases speed due to abstractions applied by the optimisation layer, such as tail-call optimisation.</p>
 <p>Feel free to send me an email if you can be bothered to go through this.</p>
@@ -394,6 +433,8 @@ Generally I prefer using the stack wherever possible for that reason exactly.</p
                             <a rel="prev" href="../../assignments.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
+
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
@@ -403,20 +444,30 @@ Generally I prefer using the stack wherever possible for that reason exactly.</p
                     <a rel="prev" href="../../assignments.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
+
             </nav>
 
         </div>
 
-        <script type="text/javascript">
+
+
+
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
 
         <!-- Custom JS scripts -->
+
+
+    </div>
     </body>
 </html>
