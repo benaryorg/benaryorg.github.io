@@ -1,6 +1,7 @@
 # Summary
 
 - [Introduction](./introduction.md)
+- [Ramble](./ramble.md)
 - [Legacy](./legacy/index.md)
 	- [Programming]()
 		- [Getting Started With Programming](./legacy/programming/getting_started.md)
