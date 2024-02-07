@@ -3,6 +3,7 @@
 - [Introduction](./introduction.md)
 - [Ramble](./ramble.md)
 - [Networking](./net/index.md)
+	- [Link Layer](./net/link-layer.md)
 - [Legacy](./legacy/index.md)
 	- [Programming]()
 		- [Getting Started With Programming](./legacy/programming/getting_started.md)
